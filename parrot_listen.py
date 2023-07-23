@@ -4,7 +4,7 @@ import time
 d = u2.connect()
 
 
-# 启动 APP
+# 启动 APP TODO 目前是点击启动，修改为启动exe
 def start_app():
     d.press("home")
     time.sleep(5)
@@ -32,8 +32,7 @@ def listen_func():
         for listen in listen_list:
             if (size > 0):
                 listen_offset = listen.offset(listen_offset_transverse, listen_offset_direction)
-                d.click(listen_offset[0],
-                        listen_offset[1])
+                d.click(listen_offset[0], listen_offset[1])
                 interactive_func()
 
 
@@ -45,7 +44,7 @@ def interactive_func():
         d.xpath(exit_btn).click()
         return
 
-    # 打印所有列表内容
+    # 打印所有列表内容 TODO 获取消息数量，只打印该数量的聊天内容
     i = 1
     while i < len(d.xpath(info_list_resource_id).all()) + 1:
         info_text = info_list_resource_id + '[%s]' % (i)
@@ -61,6 +60,14 @@ def interactive_func():
     # 退出到列表页
     d.xpath(exit_btn).click()
 
+
+# TODO 匹配话术字典择词回复
+
+# TODO 主动发送消息
+
+# TODO 接起视频/语音
+
+# TODO 记录 关键事件（主动推送内容、聊天内容、接起视频、语音） 用于运营分析
 
 # *****************登录部分参数*******************************
 # APP名称
